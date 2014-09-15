@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="main()">
+    <mx:Script>
+        <![CDATA[
+            //[librarys]
+            import mx.controls.Alert;//Alert
+            import mx.core.UIComponent;//UIComponent
+            import org.si.sion.*;//SiON
+            import Functions;//Functions.as
+            import data.gamedata.Shop;//Shop.as
+            
+            //[Game functions]
+            //global variables
+            public var canvas:UIComponent = new UIComponent();
+            public var f:Functions = new Functions();
+            public var tilesize:int = 32;
+            //creationComplete
+            public function main():void {
+                addChild(canvas);
+                loadmap();
+                new SiONDriver().play(f.automusic(['l8','[', 1 ,'r16', 1, 'r16', 1, 'r16', '|', 8, ']4', 8], 'c_minor'));
+            }
+            //load map function
+            public function loadmap():void {
+                var mapdata:Array = [[[0,0]]];
+                f.loadImage('image.jpg', showMap);
+                function showMap(event:Event):void {
+                    var chipset:BitmapData = event.currentTarget.content.bitmapData;
+                    var chip:Bitmap = new Bitmap();
+                    for (var i:int = 0; i < mapdata.length; i++) {
+                        for (var j:int = 0; j < mapdata[i].length; j++) {
+                            chip = new Bitmap(f.cropImage(chipset, mapdata[i][j][0] * tilesize, mapdata[i][j][1] * tilesize, tilesize, tilesize));
+                            chip.x = i * tilesize;
+                            chip.y = j * tilesize;
+                            canvas.addChild(chip);
+                        }
+                    }
+                }
+            }
+        ]]>
+    </mx:Script>
+</mx:Application>
