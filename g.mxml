@@ -7,7 +7,7 @@
             import mx.core.UIComponent;//UIComponent
             import org.si.sion.*;//SiON
             import Functions;//Functions.as
-            import data.gamedata.Shop;//Shop.as
+            import data.gamedata.Shops;//Shops.as
             
             //[Game functions]
             //global variables
