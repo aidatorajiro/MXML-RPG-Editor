@@ -1,0 +1,1 @@
+var mapdatas:Array = [['image.jpg', [[[0,0]]]]];

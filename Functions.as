@@ -7,26 +7,28 @@ package {
     
     public class Functions {
         //text loading
-        public function loadText(filepath:String, onComplete:Function):void {
+        public static function loadText(filepath:String, onComplete:Function):void {
             var urlloader:URLLoader = new URLLoader();
             urlloader.addEventListener(Event.COMPLETE, onComplete);
             urlloader.load(new URLRequest(filepath + '?' + Math.random()));
         }
+        
         //image loading
-        public function loadImage(filepath:String, onComplete:Function):void {
+        public static function loadImage(filepath:String, onComplete:Function):void {
             var loader:Loader = new Loader();
             loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
             loader.load(new URLRequest(filepath + '?' + Math.random()));
         }
+        
         //image cropping
-        public function cropImage(sourceBD:BitmapData, startx:int, starty:int, sizex:int, sizey:int):BitmapData {
+        public static function cropImage(sourceBD:BitmapData, startx:int, starty:int, sizex:int, sizey:int):BitmapData {
             var cropBD:BitmapData = new BitmapData(sizex, sizey, true, 0x00000000);
             cropBD.copyPixels(sourceBD, new Rectangle(startx, starty, sizex, sizey), new Point(0, 0)); 
             return cropBD;
         }
         
         //automatic music generator
-        public function automusic(timing:Array, keyName:String):String {
+        public static function automusic(timing:Array, keyName:String):String {
             var score:String;
             
             var key:Array = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
