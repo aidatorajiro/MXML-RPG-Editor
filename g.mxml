@@ -2,7 +2,14 @@
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="main()">
     <mx:Script>
         <![CDATA[
-            include 'data/gamescript/main.as';
+            import data.GameFunctions;
+            import mx.controls.Alert;
+            
+            //creationComplete
+            public function main():void {
+                addChild(GameFunctions.canvas);
+                GameFunctions.loadmap(0);
+            }
         ]]>
     </mx:Script>
 </mx:Application>

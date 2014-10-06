@@ -1,4 +1,4 @@
-package {
+package data {
     import flash.utils.*;
     import flash.display.*;
     import flash.geom.*;
